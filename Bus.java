@@ -10,8 +10,11 @@ class Bus{
     return this.name;
   }
 
-  public void load(Passenger person){
-    passengers[0]=new Passenger();
+  public void load (Passenger person){
+    int index = this.count_passengers();
+    if(index<passengers.length){
+    passengers[index] = person;
+  }
   }
 
   public int count_passengers(){
@@ -22,6 +25,11 @@ class Bus{
     }
   return count;
   }
+
+  public boolean isBusFull(){
+    return count_passengers()==passengers.length;
+  }
+
 
 
 
