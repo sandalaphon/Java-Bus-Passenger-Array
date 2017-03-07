@@ -4,11 +4,14 @@ import org.junit.*;
 public class BusTest{
 Bus bus;
 Passenger person;
+BusStop myLocal;
+
 
 @Before
 public void before(){
 bus = new Bus("bus19");
 person = new Passenger();
+myLocal = new BusStop();
 }
 
 @Test
@@ -39,5 +42,17 @@ public void busIsFull(){
   assertEquals(true, bus.isBusFull());
 }
 
+@Test
+public void canJoinQueue(){
+  myLocal.joinQueue(person);
+assertEquals(1, myLocal.countQueue());
+}
+
+// @Test
+// public void boardingBusDeletesFromQueue(){
+//   myLocal.joinQueue(person);
+//  bus.load(person); 
+//  assertEquals(0, myLocal.countQueue());
+// }
 
 }
